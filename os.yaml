@@ -17,6 +17,10 @@ spec:
   reference:
     uri: quay.io/redhat/rhel-bootc
     artifacts:
+      - type: container
+        name: bootc
+        uri: quay.io/redhat/rhel-bootc
+        default: true
       - type: qcow2
         name: QCOW2 Disk Image
         uri: quay.io/redhat/rhel-bootc-qcow2
