@@ -168,6 +168,7 @@ spec:
         qcow2: "1.26.0"
       channels: [fast]
       replaces: "1.25.0"
+      skips: ["1.24.0"]
       # version-specific config overrides defaults.config
       config:
         envVars:
@@ -231,7 +232,7 @@ spec:
       references:
         container: "1.24.0"
         qcow2: "1.24.0"
-      channels: [stable]
+      channels: [stable, fast]
 
   # item-level defaults (used when version doesn't override)
   defaults:
