@@ -168,7 +168,6 @@ spec:
         qcow2: "1.26.0"
       channels: [fast]
       replaces: "1.25.0"
-      skips: ["1.24.0"]
       # version-specific config overrides defaults.config
       config:
         envVars:
