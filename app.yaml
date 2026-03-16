@@ -14,12 +14,18 @@ spec:
 
   category: application
   type: quadlet
-  reference:
-    uri: quay.io/example/nginx-quadlet
+  artifacts:
+    - type: container
+      uri: quay.io/example/nginx-quadlet
+    - type: qcow2
+      name: Appliance Image
+      uri: quay.io/example/nginx-quadlet-appliance
 
   versions:
     - version: "1.26.0"
-      tag: "1.26.0"
+      references:
+        container: "1.26.0"
+        qcow2: "1.26.0"
       channels: [fast]
       replaces: "1.25.0"
       # version-specific config overrides defaults.config
@@ -74,15 +80,18 @@ spec:
         - Native OpenTelemetry tracing via NGINX_ENABLE_OTEL
         - Improved HTTP/3 performance
     - version: "1.25.0"
-      tag: "1.25.0"
+      references:
+        qcow2: "1.25.0"
       channels: [stable, fast]
       replaces: "1.24.0"
       readme: |
         ## NGINX 1.25.0 (Stable)
-        Production-ready release with HTTP/3 support.
+        Production-ready release with HTTP/3 support. No container img
     - version: "1.24.0"
-      tag: "1.24.0"
-      channels: [stable]
+      references:
+        container: "1.24.0"
+        qcow2: "1.24.0"
+      channels: [stable, fast]
 
   # item-level defaults (used when version doesn't override)
   defaults:
